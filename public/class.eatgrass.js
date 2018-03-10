@@ -32,6 +32,7 @@ class Eatgrass {
             if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
                 if (matrix[y][x] == t) {
                     found.push(this.directions[i]);
+
                 }
             }
         }
@@ -83,6 +84,7 @@ class Eatgrass {
             for (var i in xotArr) {
                 if (x == xotArr[i].x && y == xotArr[i].y) {
                     xotArr.splice(i, 1);
+                    break;
                 }
             }
             if (this.multiply == 10) {
@@ -122,6 +124,7 @@ class Eatgrass {
         for (var i in eatArr) {
             if (this.x == eatArr[i].x && this.y == eatArr[i].y) {
                 eatArr.splice(i, 1);
+                break;
             }
         }
     }

@@ -1,4 +1,4 @@
-class gishatich{
+class gishatich {
     constructor(x, y, ind) {
         this.index = ind;
         this.x = x;
@@ -22,7 +22,7 @@ class gishatich{
         ];
     }
 
- getDirections(t) {
+    getDirections(t) {
         this.newDirections();
         var found = [];
 
@@ -43,7 +43,7 @@ class gishatich{
 
 
     move() {
-        
+
         var emptyCord = this.getDirections(0);
         var cord = random(emptyCord);
         if (cord) {
@@ -64,9 +64,9 @@ class gishatich{
 
         var gishCord = this.getDirections(2);
         var cord = random(gishCord);
-    
+
         if (cord) {
-            
+
             this.multiply++;
 
             var x = cord[0];
@@ -82,6 +82,7 @@ class gishatich{
             for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
                     eatArr.splice(i, 1);
+                    break;
                 }
             }
             if (this.multiply == 10) {
@@ -120,6 +121,7 @@ class gishatich{
         for (var i in gishArr) {
             if (this.x == gishArr[i].x && this.y == gishArr[i].y) {
                 gishArr.splice(i, 1);
+                break;
             }
         }
     }

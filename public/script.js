@@ -6,7 +6,7 @@ var gishArr = [];
 var vorsArr = [];
 
 
- 
+
 var bardz = 100;
 var layn = 100;
 var grassCount = 300;
@@ -15,7 +15,7 @@ var gishCount = 80;
 var vorsCount = 40;
 var matrix = [];
 
-for(var i = 0; i < bardz; i++){
+for (var i = 0; i < bardz; i++) {
     matrix.push([]);
     for (var j = 0; j < layn; j++) {
         matrix[i].push(0);
@@ -26,26 +26,26 @@ for(var i = 0; i < bardz; i++){
 
 function setup() {
 
-for (var i = 0; i < grassCount; i++) {
-    var x = Math.floor(random(0, layn));
-    var y = Math.floor(random(0, bardz));
-    matrix[y][x] = 1;
-}
-for (var i = 0; i < eatgrassCount; i++) {
-    var x = Math.floor(random(0, layn));
-    var y = Math.floor(random(0, bardz));
-    matrix[y][x] = 2;
-}
-for (var i = 0; i < gishCount; i++) {
-    var x = Math.floor(random(0, layn));
-    var y = Math.floor(random(0, bardz));
-    matrix[y][x] = 3;
-}
-for (var i = 0; i < vorsCount; i++) {
-    var x = Math.floor(random(0, layn));
-    var y = Math.floor(random(0, bardz));
-    matrix[y][x] = 4;
-}
+    for (var i = 0; i < grassCount; i++) {
+        var x = Math.floor(random(0, layn));
+        var y = Math.floor(random(0, bardz));
+        matrix[y][x] = 1;
+    }
+    for (var i = 0; i < eatgrassCount; i++) {
+        var x = Math.floor(random(0, layn));
+        var y = Math.floor(random(0, bardz));
+        matrix[y][x] = 2;
+    }
+    for (var i = 0; i < gishCount; i++) {
+        var x = Math.floor(random(0, layn));
+        var y = Math.floor(random(0, bardz));
+        matrix[y][x] = 3;
+    }
+    for (var i = 0; i < vorsCount; i++) {
+        var x = Math.floor(random(0, layn));
+        var y = Math.floor(random(0, bardz));
+        matrix[y][x] = 4;
+    }
 
 
 
@@ -118,10 +118,10 @@ function draw() {
 
     for (var i in gishArr) {
         gishArr[i].eat();
-       
+
     }
     for (var i in vorsArr) {
         vorsArr[i].kill();
-       
+
     }
 }

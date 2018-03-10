@@ -1,4 +1,4 @@
-class vorsord{
+class vorsord {
     constructor(x, y, ind) {
         this.index = ind;
         this.x = x;
@@ -21,7 +21,7 @@ class vorsord{
         ];
     }
 
- getDirections(t) {
+    getDirections(t) {
         this.newDirections();
         var found = [];
 
@@ -42,7 +42,7 @@ class vorsord{
 
 
     move() {
-        
+
         var emptyCord = this.getDirections(0);
         var cord = random(emptyCord);
         if (cord) {
@@ -65,9 +65,9 @@ class vorsord{
         var xotCord = this.getDirections(2);
         var gcord = random(gishCord);
         var xcord = random(xotCord);
-    
+
         if (gcord) {
-            
+
             this.multiply++;
 
             var x = gcord[0];
@@ -80,17 +80,18 @@ class vorsord{
             this.y = y;
 
 
-           for (var i in gishArr) {
+            for (var i in gishArr) {
                 if (x == gishArr[i].x && y == gishArr[i].y) {
                     gishArr.splice(i, 1);
+                    break;
                 }
             }
 
-           
 
-        } 
-        else if(xcord){
-            
+
+        }
+        else if (xcord) {
+
             this.multiply++;
 
             var x = xcord[0];
@@ -103,15 +104,16 @@ class vorsord{
             this.y = y;
 
 
-           for (var i in eatArr) {
+            for (var i in eatArr) {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
-                    eatArr.splice(i, 1); 
+                    eatArr.splice(i, 1);
+                    break;
                 }
             }
 
-            
+
         }
-        
+
         else {
             this.move();
             this.energy--;
