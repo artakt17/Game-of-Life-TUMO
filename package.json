@@ -1,26 +1,14 @@
 {
-  "name": "test_heroku_gol",
+  "name": "lesson",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start":"node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hanumanum/test-heroku-gol.git"
-  },
-  "author": "hanuman",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hanumanum/test-heroku-gol/issues"
-  },
-  "homepage": "https://tumotestgol.herokuapp.com/",
   "dependencies": {
-    "express": "^4.16.2"
-  },
-  "engines": {
-    "node": "4.7.2"
+    "express": "^4.16.3"
   }
 }

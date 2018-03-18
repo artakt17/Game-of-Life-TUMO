@@ -6,12 +6,11 @@ var gishArr = [];
 var vorsArr = [];
 
 
-
 var bardz = 100;
 var layn = 100;
-var grassCount = 300;
-var eatgrassCount = 100;
-var gishCount = 80;
+var grassCount = 500;
+var eatgrassCount = 150;
+var gishCount = 100;
 var vorsCount = 40;
 var matrix = [];
 
