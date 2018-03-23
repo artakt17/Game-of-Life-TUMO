@@ -39,7 +39,7 @@ class Supers {
         return found;
     }
 
-    move(index) {
+    move() {
         var emptyCord = this.getDirections(0);
         var cord = random(emptyCord);
 
