@@ -1,7 +1,6 @@
 class Grass extends Supers {
-    constructor(x, y, ind, energy) {
-        super(x, y, ind, energy);
-        this.energy == 3;
+    constructor(x, y, ind) {
+        super(x, y, ind, 3); //3֊ը խոտակերի սկզբնական էներգետիկ մակարդակն է
     }
 
 
