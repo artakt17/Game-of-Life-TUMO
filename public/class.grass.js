@@ -4,8 +4,7 @@ class Grass extends Supers {
     }
 
 
-    mul(xotmul) {
-        this.xotmul++;
+    mul() {
         this.multiply++;
         if (this.multiply == 3) {
             var emptyCord = this.getDirections(0);
@@ -22,7 +21,7 @@ class Grass extends Supers {
                 this.multiply = 0;
             }
         }
-        stats.grassCount++;
+        stats.grassMulCount++;
     }
 
     move(){

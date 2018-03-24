@@ -63,6 +63,7 @@ class gishatich extends Supers {
             matrix[y][x] = 2;
             this.multiply = 0;
         }
+        stats.gishgrassMulCount++;
     }
     die() {
         matrix[this.y][this.x] = 0;

@@ -65,6 +65,7 @@ class Eatgrass extends Supers {
             matrix[y][x] = 1;
             this.multiply = 0;
         }
+        stats.eatgrassMulCount++;
     }
     die() {
         matrix[this.y][this.x] = 0;

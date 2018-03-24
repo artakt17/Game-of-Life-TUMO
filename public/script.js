@@ -128,7 +128,8 @@ function draw() {
 
 
 var stats = {
-    grassCount:0,
-    esimCount
+    grassMulCount:0,
+    eatgrassMulCount:0,
+    gishMulCount:0,
 
 }
