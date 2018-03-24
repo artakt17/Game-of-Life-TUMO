@@ -1,20 +1,18 @@
-var express = require("express");
+var express = require('express');
 var app = express();
-
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 
 var fs = require('fs');
 
 function writetest() {
-    var obj = {
-        "first-name": "Artak",
-        "last-name": "Tamrazyan",
-        "age": 17,
-        "TUMO-Students": true,
+    var stats = {
+        
 
     }
-    var myJSON = JSON.stringify(obj);
-    fs.writeFileSync("obj.JSON", myJSON);
-    var text = fs.readFileSync("obj.JSON").toString();
+    var myJSON = JSON.stringify(stats);
+    fs.writeFileSync("public/stats.JSON", myJSON);
+    var text = fs.readFileSync("public/stats.JSON").toString();
 
 }
 writetest();
@@ -24,6 +22,10 @@ app.use(express.static("public"));
 app.get("/", function (req, res) {
     res.redirect("index.html");
 });
+app.get("/stats", function (req, res) {
+    res.redirect("stats.JSON");
+});
+
 
 app.listen(3010, function () {
     console.log("Example is running on port 3010");

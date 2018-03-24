@@ -1,7 +1,7 @@
 class Eatgrass extends Supers {
-    constructor(x, y, ind, energy) {
-        super(x, y, ind, energy);
-        this.energy == 10;
+    constructor(x, y, ind,) {
+        super(x, y, ind, 10);
+    
 
     }
 

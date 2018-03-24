@@ -1,6 +1,6 @@
 class Grass extends Supers {
     constructor(x, y, ind) {
-        super(x, y, ind, 3); //3֊ը խոտի սկզբնական էներգետիկ մակարդակն է
+        super(x, y, ind, 3);
     }
 
 

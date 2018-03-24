@@ -1,7 +1,7 @@
 class gishatich extends Supers {
-        constructor(x, y, ind, energy) {
-            super(x, y, ind, energy);
-            this.energy == 20;
+        constructor(x, y, ind,) {
+            super(x, y, ind, 20);
+        
     
         }
 
