@@ -124,3 +124,11 @@ function draw() {
 
     }
 }
+
+
+
+var stats = {
+    grassCount:0,
+    esimCount
+
+}

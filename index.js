@@ -5,8 +5,16 @@ var io = require('socket.io')(server);
 
 var fs = require('fs');
 
+/*
 function writetest() {
-    var stats = {
+       xotmul = 0;
+       xotakermul = 0;
+       gishmul = 0;
+       stats = {
+       "Խոտերի բազմացման քանակը" : xotmul,
+       "Խոտակերի բազմացման քանակը" : xotakermul,
+       "Գիշատիչի բազմացման քանակը" : gishmul,
+    
         
 
     }
@@ -16,7 +24,7 @@ function writetest() {
 
 }
 writetest();
-
+*/
 
 app.use(express.static("public"));
 app.get("/", function (req, res) {
