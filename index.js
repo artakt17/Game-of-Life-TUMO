@@ -5,26 +5,26 @@ var io = require('socket.io')(server);
 
 var fs = require('fs');
 
-/*
-function writetest() {
-       xotmul = 0;
-       xotakermul = 0;
-       gishmul = 0;
-       stats = {
-       "Խոտերի բազմացման քանակը" : xotmul,
-       "Խոտակերի բազմացման քանակը" : xotakermul,
-       "Գիշատիչի բազմացման քանակը" : gishmul,
-    
-        
 
+function statstext() {
+
+    stats = {
+        grassMulCount: 0,
+        eatgrassMulCount: 0,
+        gishMulCount: 0,
+        eatgrassDieCount: 0,
+        gishDieCount: 0,
+        eatgrassEatCount: 0,
+        gishEatCount: 0,
+        vorsKillCount: 0,
+        trapKillCount: 0,
     }
-    var myJSON = JSON.stringify(stats);
-    fs.writeFileSync("public/stats.JSON", myJSON);
-    var text = fs.readFileSync("public/stats.JSON").toString();
 
+    var myJSON = JSON.stringify(stats);
+    fs.writeFileSync("stats.JSON", myJSON);
+    var text = fs.readFileSync("stats.JSON").toString();
 }
-writetest();
-*/
+statstext();
 
 app.use(express.static("public"));
 app.get("/", function (req, res) {

@@ -118,8 +118,8 @@ function draw() {
                 rect(j * side, i * side, side, side);
             }
         }
-        }
-    
+    }
+
 
 
 
@@ -146,18 +146,23 @@ function draw() {
 }
 
 
+    stats = {
+        grassMulCount: 0,
+        eatgrassMulCount: 0,
+        gishMulCount: 0,
+        eatgrassDieCount: 0,
+        gishDieCount: 0,
+        eatgrassEatCount: 0,
+        gishEatCount: 0,
+        vorsKillCount: 0,
+        trapKillCount: 0,
+    }
 
-var stats = {
-    grassMulCount:0,
-    eatgrassMulCount:0,
-    gishMulCount:0,
-    eatgrassDieCount:0,
-    gishDieCount:0,
-    eatgrassEatCount:0,
-    gishEatCount:0,
-    vorsKillCount:0,
-    trapKillCount:0,
-}
+
+
+
+
+
 
 
 
