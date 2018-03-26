@@ -67,6 +67,7 @@ class vorsord extends Supers {
 
             }
         }
+        stats.vorsKillCount++;
     }
 
 

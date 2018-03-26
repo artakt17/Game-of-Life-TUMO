@@ -47,6 +47,7 @@ class Eatgrass extends Supers {
                 //this.energy = 10;
             }
         }
+        stats.eatgrassEatCount++;
     }
 
     mul() {
@@ -75,6 +76,7 @@ class Eatgrass extends Supers {
                 break;
             }
         }
+        stats.eatgrassDieCount++;
     }
 
 }

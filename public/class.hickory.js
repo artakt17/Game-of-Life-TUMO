@@ -46,6 +46,7 @@ class gishatich extends Supers {
                 //this.energy = 10;
             }
         }
+        stats.gishEatCount++;
     }
     mul() {
         var emptyCord = this.getDirections(0);
@@ -73,6 +74,7 @@ class gishatich extends Supers {
                 break;
             }
         }
+        stats.gishDieCount++;
     }
 
 }
