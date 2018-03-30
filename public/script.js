@@ -104,31 +104,24 @@ function setup() {
 function draw() {
     console.log(frameCount);
     background('#acacac');
-    /*function changeseason() {
-        var summer = 5;
-        var winter = 1;
-        for (var i = 0; i >= 0; i++) {
-            if (frameCount = summer) {
-                winter += 5
-            }
-            if (frameCount = winter && winter >= 6) {
-                summer += 5;
-            }
 
-        }
+    var color = "green";
+    if (frameCount <= 20) {
+        color = "green";
     }
-    */
+    else if (frameCount >= 21 && frameCount <= 40) {
+        color = "white";
+    }
+    else{
+        frameCount === 0;
+    }
+
 
     for (var i = 0; i < matrix.length; i++) {
         for (var j = 0; j < matrix[i].length; j++) {
             if (matrix[i][j] == 1) {
-                if (frameCount <= 10) {
-                    fill("green");
-                }
-               /*else if (frameCount >= 11) {
-                    fill("white");
 
-                }*/
+                fill(color);
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 2) {
                 fill("orange");

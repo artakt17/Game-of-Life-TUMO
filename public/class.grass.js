@@ -5,8 +5,18 @@ class Grass extends Supers {
 
 
     mul() {
+        var mulcount = 3;
+        if (frameCount <= 20) {
+            mulcount = 3;
+        }
+        else if (frameCount >= 21 && frameCount <= 40) {
+            mulcount = 10;
+        }
+        else {
+            frameCount === 0;
+        }
         this.multiply++;
-        if (this.multiply == 3) {
+        if (this.multiply == mulcount) {
             var emptyCord = this.getDirections(0);
 
             var cord = random(emptyCord);
@@ -24,7 +34,7 @@ class Grass extends Supers {
         stats.grassMulCount++;
     }
 
-    move(){
+    move() {
         return false;
     }
 
