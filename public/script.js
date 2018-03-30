@@ -4,13 +4,11 @@ var xotArr = [];
 var eatArr = [];
 var gishArr = [];
 var vorsArr = [];
-var trapArr = [];
 var magArr = [];
 
 
 var bardz = 100;
 var layn = 100;
-var trapCount = 20;
 var grassCount = 500;
 var eatgrassCount = 150;
 var gishCount = 100;
@@ -50,15 +48,10 @@ function setup() {
         var y = Math.floor(random(0, bardz));
         matrix[y][x] = 4;
     }
-    for (var i = 0; i < trapCount; i++) {
-        var x = Math.floor(random(0, layn));
-        var y = Math.floor(random(0, bardz));
-        matrix[y][x] = 5;
-    }
     for (var i = 0; i < magCount; i++) {
         var x = Math.floor(random(0, layn));
         var y = Math.floor(random(0, bardz));
-        matrix[y][x] = 6;
+        matrix[y][x] = 5;
     }
 
 
@@ -89,11 +82,7 @@ function setup() {
                 vorsArr.push(vors);
             }
             else if (matrix[i][j] == 5) {
-                var trap = new Trap(j, i, 5);
-                trapArr.push(trap);
-            }
-            else if (matrix[i][j] == 6) {
-                var mag = new Magic(j, i, 6);
+                var mag = new Magic(j, i, 5);
                 magArr.push(mag);
             }
         }
@@ -139,11 +128,7 @@ function draw() {
                 rect(j * side, i * side, side, side);
             }
             else if (matrix[i][j] == 5) {
-                fill('blue');
-                rect(j * side, i * side, side, side);
-            }
-            else if (matrix[i][j] == 6) {
-                fill("#8904B1");
+                fill("blue");
                 rect(j * side, i * side, side, side);
             }
         }
@@ -168,10 +153,6 @@ function draw() {
         vorsArr[i].kill();
 
     }
-    for (var i in trapArr) {
-        trapArr[i].kill();
-
-    }
 }
 
 
@@ -184,7 +165,6 @@ stats = {
     eatgrassEatCount: 0,
     gishEatCount: 0,
     vorsKillCount: 0,
-    trapKillCount: 0,
 }
 
 
