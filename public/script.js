@@ -5,6 +5,7 @@ var eatArr = [];
 var gishArr = [];
 var vorsArr = [];
 var trapArr = [];
+var magArr = [];
 
 
 var bardz = 100;
@@ -14,7 +15,9 @@ var grassCount = 500;
 var eatgrassCount = 150;
 var gishCount = 100;
 var vorsCount = 40;
+var magCount = 5;
 var matrix = [];
+
 
 for (var i = 0; i < bardz; i++) {
     matrix.push([]);
@@ -52,15 +55,18 @@ function setup() {
         var y = Math.floor(random(0, bardz));
         matrix[y][x] = 5;
     }
-
-
+    for (var i = 0; i < magCount; i++) {
+        var x = Math.floor(random(0, layn));
+        var y = Math.floor(random(0, bardz));
+        matrix[y][x] = 6;
+    }
 
 
 
 
 
     noStroke()
-    frameRate(3);
+    frameRate(30);
     createCanvas(matrix[0].length * side, matrix.length * side);
     background('#acacac');
 
@@ -86,17 +92,43 @@ function setup() {
                 var trap = new Trap(j, i, 5);
                 trapArr.push(trap);
             }
+            else if (matrix[i][j] == 6) {
+                var mag = new Magic(j, i, 6);
+                magArr.push(mag);
+            }
         }
     }
 
 }
 
 function draw() {
+    console.log(frameCount);
     background('#acacac');
+    /*function changeseason() {
+        var summer = 5;
+        var winter = 1;
+        for (var i = 0; i >= 0; i++) {
+            if (frameCount = summer) {
+                winter += 5
+            }
+            if (frameCount = winter && winter >= 6) {
+                summer += 5;
+            }
+
+        }
+    }
+    */
+
     for (var i = 0; i < matrix.length; i++) {
         for (var j = 0; j < matrix[i].length; j++) {
             if (matrix[i][j] == 1) {
-                fill("green");
+                if (frameCount <= 10) {
+                    fill("green");
+                }
+               /*else if (frameCount >= 11) {
+                    fill("white");
+
+                }*/
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 2) {
                 fill("orange");
@@ -115,6 +147,10 @@ function draw() {
             }
             else if (matrix[i][j] == 5) {
                 fill('blue');
+                rect(j * side, i * side, side, side);
+            }
+            else if (matrix[i][j] == 6) {
+                fill("#8904B1");
                 rect(j * side, i * side, side, side);
             }
         }
@@ -146,17 +182,17 @@ function draw() {
 }
 
 
-    stats = {
-        grassMulCount: 0,
-        eatgrassMulCount: 0,
-        gishMulCount: 0,
-        eatgrassDieCount: 0,
-        gishDieCount: 0,
-        eatgrassEatCount: 0,
-        gishEatCount: 0,
-        vorsKillCount: 0,
-        trapKillCount: 0,
-    }
+stats = {
+    grassMulCount: 0,
+    eatgrassMulCount: 0,
+    gishMulCount: 0,
+    eatgrassDieCount: 0,
+    gishDieCount: 0,
+    eatgrassEatCount: 0,
+    gishEatCount: 0,
+    vorsKillCount: 0,
+    trapKillCount: 0,
+}
 
 
 
