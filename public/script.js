@@ -1,3 +1,5 @@
+var socket = io.connect('http://localhost:3010');
+
 var matrix = []
 var side = 8;
 var xotArr = [];
@@ -16,6 +18,17 @@ var gishCount = 80;
 var vorsCount = 40;
 var magCount = 5;
 var matrix = [];
+
+var stats = {
+    grassMulCount: 0,
+    eatgrassMulCount: 0,
+    gishMulCount: 0,
+    eatgrassDieCount: 0,
+    gishDieCount: 0,
+    eatgrassEatCount: 0,
+    gishEatCount: 0,
+    vorsKillCount: 0,
+}
 
 
 for (var i = 0; i < bardz; i++) {
@@ -94,20 +107,23 @@ function setup() {
     }
 
 }
-
+ var fcount = 0;
 function draw() {
-    console.log(frameCount);
+    fcount++;
+    console.log(fcount);
     background('#acacac');
 
+   
     var color = "green";
-    if (frameCount <= 20) {
+
+    if(fcount <= 30){
         color = "green";
     }
-    else if (frameCount >= 21 && frameCount <= 40) {
+    else if(fcount >= 31 && fcount <= 60){
         color = "white";
     }
-    else {
-        frameCount === 0;
+    else if(fcount >= 61 ){
+        fcount === 0;
     }
 
 
@@ -176,18 +192,11 @@ function draw() {
         socket.emit("send data", stats);
     }
 }
-var socket = io.connect('http://localhost:3010');
 
-stats = {
-    grassMulCount: 0,
-    eatgrassMulCount: 0,
-    gishMulCount: 0,
-    eatgrassDieCount: 0,
-    gishDieCount: 0,
-    eatgrassEatCount: 0,
-    gishEatCount: 0,
-    vorsKillCount: 0,
-}
+
+
+
+
 
 
 

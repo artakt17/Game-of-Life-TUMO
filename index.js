@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-
+var statData = [];
 var fs = require('fs');
 
 app.use('/socket', express.static(__dirname + '/node_modules/socket.io-client/dist/'));
@@ -16,10 +16,15 @@ app.get('/stats', function (req, res) {
     res.redirect('stats.html');
 });
 
+server.listen(3010);
+
 io.on('connection', function (socket) {
+    
     socket.on("send data", function (data) {
         statData.push(data); 
+        
         fs.writeFile('public/data.json', JSON.stringify(statData));
+
     })
     socket.on("get stats", function () { 
         fs.readFile('public/data.json', "utf8", function(err, statsFromFile) {
@@ -31,10 +36,5 @@ io.on('connection', function (socket) {
 
 });
 
-
-
-app.listen(3010, function () {
-    console.log("Example is running on port 3010");
-});
 
 
