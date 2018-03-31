@@ -5,37 +5,36 @@ var io = require('socket.io')(server);
 
 var fs = require('fs');
 
-/*
-function statstext() {
-
-    stats = {
-        grassMulCount: 0,
-        eatgrassMulCount: 0,
-        gishMulCount: 0,
-        eatgrassDieCount: 0,
-        gishDieCount: 0,
-        eatgrassEatCount: 0,
-        gishEatCount: 0,
-        vorsKillCount: 0,
-        trapKillCount: 0,
-    }
-
-    var myJSON = JSON.stringify(stats);
-    fs.writeFileSync("stats.JSON", myJSON);
-    var text = fs.readFileSync("stats.JSON").toString();
-}
-statstext();
-*/
+app.use('/socket', express.static(__dirname + '/node_modules/socket.io-client/dist/'));
+app.use('/p5', express.static(__dirname + '/node_modules/p5/lib/'));
 
 app.use(express.static("public"));
 app.get("/", function (req, res) {
     res.redirect("index.html");
 });
-app.get("/stats", function (req, res) {
-    res.redirect("stats.JSON");
+app.get('/stats', function (req, res) {
+    res.redirect('stats.html');
 });
+
+io.on('connection', function (socket) {
+    socket.on("send data", function (data) {
+        statData.push(data); 
+        fs.writeFile('public/data.json', JSON.stringify(statData));
+    })
+    socket.on("get stats", function () { 
+        fs.readFile('public/data.json', "utf8", function(err, statsFromFile) {
+            socket.emit("send stats",statsFromFile);    
+        });
+        
+    })
+    
+
+});
+
 
 
 app.listen(3010, function () {
     console.log("Example is running on port 3010");
 });
+
+

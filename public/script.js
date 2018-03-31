@@ -5,13 +5,14 @@ var eatArr = [];
 var gishArr = [];
 var vorsArr = [];
 var magArr = [];
+var fireArr = [];
 
 
-var bardz = 100;
-var layn = 100;
-var grassCount = 500;
-var eatgrassCount = 150;
-var gishCount = 100;
+var bardz = 80;
+var layn = 80;
+var grassCount = 400;
+var eatgrassCount = 100;
+var gishCount = 80;
 var vorsCount = 40;
 var magCount = 5;
 var matrix = [];
@@ -57,7 +58,7 @@ function setup() {
 
 
 
-
+    var cnv = createCanvas(600, 600);
     noStroke()
     frameRate(30);
     createCanvas(matrix[0].length * side, matrix.length * side);
@@ -85,6 +86,10 @@ function setup() {
                 var mag = new Magic(j, i, 5);
                 magArr.push(mag);
             }
+            else if (matrix[i][j] == 6) {
+                var fire = new Fire(j, i, 6);
+                fireArr.push(fire);
+            }
         }
     }
 
@@ -101,7 +106,7 @@ function draw() {
     else if (frameCount >= 21 && frameCount <= 40) {
         color = "white";
     }
-    else{
+    else {
         frameCount === 0;
     }
 
@@ -113,7 +118,7 @@ function draw() {
                 fill(color);
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 2) {
-                fill("orange");
+                fill("#F66F07");
                 rect(j * side, i * side, side, side);
             } else if (matrix[i][j] == 0) {
                 fill('#acacac');
@@ -129,6 +134,10 @@ function draw() {
             }
             else if (matrix[i][j] == 5) {
                 fill("blue");
+                rect(j * side, i * side, side, side);
+            }
+            else if (matrix[i][j] == 6) {
+                fill("#FAFA01");
                 rect(j * side, i * side, side, side);
             }
         }
@@ -153,8 +162,21 @@ function draw() {
         vorsArr[i].kill();
 
     }
-}
+    /*
+    for (var i in magArr) {
+        magArr[i].hrdehel();
 
+    }
+    */
+
+
+    if (frameCount % 500 === 0) {
+        stats.timestamp = (new Date()).toString();
+        stats.framecount = frameCount;
+        socket.emit("send data", stats);
+    }
+}
+var socket = io.connect('http://localhost:3010');
 
 stats = {
     grassMulCount: 0,

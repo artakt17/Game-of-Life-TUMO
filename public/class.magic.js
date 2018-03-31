@@ -4,22 +4,52 @@ class Magic {
         this.x = x;
         this.y = y;
         this.multiply = 0;
-        this.energy = energy;
+        this.energy = 0;
 
     }
 
     newDirections() {
         this.directions = [
-
-            [this.x - 1, this.y - 1],
-            [this.x, this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y],
-            [this.x + 1, this.y],
-            [this.x - 1, this.y + 1],
-            [this.x, this.y + 1],
-            [this.x + 1, this.y + 1],
-            
+            [this.x - 5, this.y - 5],
+            [this.x - 4, this.y - 5],
+            [this.x - 3, this.y - 5],
+            [this.x - 2, this.y - 5],
+            [this.x - 1, this.y - 5],
+            [this.x, this.y - 5],
+            [this.x + 1, this.y - 5],
+            [this.x + 2, this.y - 5],
+            [this.x + 3, this.y - 5],
+            [this.x + 4, this.y - 5],
+            [this.x + 5, this.y - 5],
+            [this.x + 5, this.y - 4],
+            [this.x + 5, this.y - 3],
+            [this.x + 5, this.y - 2],
+            [this.x + 5, this.y - 1],
+            [this.x + 5, this.y],
+            [this.x + 5, this.y + 1],
+            [this.x + 5, this.y + 2],
+            [this.x + 5, this.y + 3],
+            [this.x + 5, this.y + 4],
+            [this.x + 5, this.y + 5],
+            [this.x + 4, this.y + 5],
+            [this.x + 3, this.y + 5],
+            [this.x + 2, this.y + 5],
+            [this.x + 1, this.y + 5],
+            [this.x, this.y + 5],
+            [this.x - 1, this.y + 5],
+            [this.x - 2, this.y + 5],
+            [this.x - 3, this.y + 5],
+            [this.x - 4, this.y + 5],
+            [this.x - 5, this.y + 5],
+            [this.x - 5, this.y + 4],
+            [this.x - 5, this.y + 3],
+            [this.x - 5, this.y + 2],
+            [this.x - 5, this.y + 1],
+            [this.x - 5, this.y],
+            [this.x - 5, this.y - 1],
+            [this.x - 5, this.y - 2],
+            [this.x - 5, this.y - 3],
+            [this.x - 5, this.y - 4],
         ];
     }
 
@@ -42,7 +72,9 @@ class Magic {
     }
 
     move() {
-        var emptyCord = this.getDirections(0);
+        var azatCord = 0;
+        var xotCord = 1;
+        var emptyCord = this.getDirections(azatCord || xotCord);
         var cord = random(emptyCord);
 
         if (cord) {
@@ -50,12 +82,29 @@ class Magic {
             var y = cord[1];
 
             matrix[y][x] = this.index;
-
-            matrix[this.y][this.x] = 0;
+            if (emptyCord = azatCord) {
+                matrix[this.y][this.x] = azatCord;
+            }
+            else if (emptyCord = xotCord) {
+                matrix[this.y][this.x] = xotCord;
+            }
 
             this.x = x;
             this.y = y;
 
         }
     }
+/*
+    hrdehel() {
+        this.energy++;
+        if (this.energy = 5) {
+            
+        }
+        else {
+            this.move();
+        }
+
+
+    }
+    */
 }
