@@ -6,8 +6,11 @@ class Fire extends Supers {
 
     mul() {
         this.multiply++;
-        if (this.multiply >= 1) {
-            var emptyCord = this.getDirections(0 || 1);
+        if (this.multiply >= 0) {
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * Math.floor(max));
+            }
+            var emptyCord = this.getDirections(getRandomInt(5));
 
             var cord = random(emptyCord);
             if (cord) {
