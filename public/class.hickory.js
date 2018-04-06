@@ -6,30 +6,6 @@ class gishatich extends Supers {
         }
 
 
-        move() {
-            var azatCord = 0;
-            var xotCord = 1;
-            var emptyCord = this.getDirections(azatCord || xotCord);
-            var cord = random(emptyCord);
-    
-            if (cord) {
-                var x = cord[0];
-                var y = cord[1];
-    
-                matrix[y][x] = this.index;
-                if (emptyCord = azatCord) {
-                    matrix[this.y][this.x] = azatCord;
-                }
-                else if (emptyCord = xotCord) {
-                    matrix[this.y][this.x] = xotCord;
-                }
-    
-                this.x = x;
-                this.y = y;
-    
-            }
-        }
-
     eat() {
 
         var gishCord = this.getDirections(2);

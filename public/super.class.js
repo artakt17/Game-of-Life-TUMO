@@ -40,7 +40,11 @@ class Supers {
     }
 
     move() {
-        var emptyCord = this.getDirections(0);
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
+        }
+
+        var emptyCord = this.getDirections(getRandomInt(2));
         var cord = random(emptyCord);
 
         if (cord) {
@@ -48,8 +52,14 @@ class Supers {
             var y = cord[1];
 
             matrix[y][x] = this.index;
+            if (emptyCord = 0) {
+                matrix[this.y][this.x] = 0;
+            }
+            else if (emptyCord = 1) {
+                matrix[this.y][this.x] = 1;
+            }
 
-            matrix[this.y][this.x] = 0;
+
 
             this.x = x;
             this.y = y;

@@ -7,7 +7,7 @@ class Fire extends Supers {
     mul() {
         this.multiply++;
         if (this.multiply >= 1) {
-            var emptyCord = this.getDirections(0 || 1 || 2 || 3 || 4);
+            var emptyCord = this.getDirections(0 || 1);
 
             var cord = random(emptyCord);
             if (cord) {
