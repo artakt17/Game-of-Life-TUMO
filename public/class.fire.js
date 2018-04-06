@@ -5,10 +5,9 @@ class Fire extends Supers {
     }
 
     mul() {
-
         this.multiply++;
-        if (this.multiply == 1) {
-            var emptyCord = this.getDirections(0,1,2,3,4,5);
+        if (this.multiply >= 1) {
+            var emptyCord = this.getDirections(0 || 1 || 2 || 3 || 4);
 
             var cord = random(emptyCord);
             if (cord) {
@@ -16,13 +15,24 @@ class Fire extends Supers {
                 var y = cord[1];
 
                 var norFire = new Fire(x, y, this.index);
-                fireArr.push(noeFire);
+                fireArr.push(norFire);
 
-                matrix[y][x] = 1;
+                matrix[y][x] = 6;
                 this.multiply = 0;
             }
         }
+        stats.fireMulCount++;
 
+    }
+
+    die() {
+        matrix[this.y][this.x] = 0;
+        for (var i in fireArr) {
+            if (this.x == fireArr[i].x && this.y == fireArr[i].y) {
+                fireArr.splice(i, 1);
+                break;
+            }
+        }
     }
 
     move() {

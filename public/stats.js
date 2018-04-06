@@ -1,45 +1,33 @@
 var socket = io.connect('http://localhost:3010');
-var table = document.getElementById("statistics");
+var table = document.getElementById("stats");
 
 //Ամեն 10000 մլվրկ֊ը մեկ
 setInterval(function(){
     //ուղարկում ենք "get stats" հացրումը սերվերին
     socket.emit("get stats", []);
 }, 10000);
-
 //Երբ սերվերը ուղարկում է տվյալ "send stats" պիտակով
 socket.on("send stats",function(stats){
     //Պատրսատում ենք աղյուսակը
-    console.log(stats)
+    
     stats = JSON.parse(stats);
     table.innerHTML = "";
-    tableHTML = "<tr><td>Ժամանակ</td><td>Քլիքներ</td><td>Կրկնակի Քլիքներ</td><td>Ստեղնաշար</td><td>frameCount</td></tr>";
+    tableHTML = "<tr><td>grassMulCount</td><td>eatgrassMulCount</td><td>gishMulCount</td><td>eatgrassDieCount</td><td>gishDieCount</td><td>eatgrassEatCount</td><td>gishEatCount</td><td>vorsKillCount</td><td>fireMulCount</td><td>framecount</td></tr>";
     for(var st of stats){
         tableHTML+="<tr>";
-        tableHTML+="<td>"+stats.grassMulCount+"</td>";
-        tableHTML+="<td>"+stats.eatgrassMulCount+"</td>";
-        tableHTML+="<td>"+stats.gishMulCount+"</td>";
-        tableHTML+="<td>"+stats.eatgrassDieCount+"</td>";
-        tableHTML+="<td>"+stats.gishDieCount+"</td>";
-        tableHTML+="<td>"+stats.eatgrassEatCount+"</td>";
-        tableHTML+="<td>"+stats.gishEatCount+"</td>";
-        tableHTML+="<td>"+stats.vorsKillCount+"</td>";
+        tableHTML+="<td>"+st.grassMulCount+"</td>";
+        tableHTML+="<td>"+st.eatgrassMulCount+"</td>";
+        tableHTML+="<td>"+st.gishMulCount+"</td>";
+        tableHTML+="<td>"+st.eatgrassDieCount+"</td>";
+        tableHTML+="<td>"+st.gishDieCount+"</td>";
+        tableHTML+="<td>"+st.eatgrassEatCount+"</td>";
+        tableHTML+="<td>"+st.gishEatCount+"</td>";
+        tableHTML+="<td>"+st.vorsKillCount+"</td>";
+        tableHTML+="<td>"+st.fireMulCount+"</td>";
+        tableHTML+="<td>"+st.framecount+"</td>";
         tableHTML+="</tr>";
     }
 
     table.innerHTML = tableHTML;
-    //console.log(stats);
-})
 
-/*
-var stats = {
-    grassMulCount: 0,
-    eatgrassMulCount: 0,
-    gishMulCount: 0,
-    eatgrassDieCount: 0,
-    gishDieCount: 0,
-    eatgrassEatCount: 0,
-    gishEatCount: 0,
-    vorsKillCount: 0,
-}
-*/
+})

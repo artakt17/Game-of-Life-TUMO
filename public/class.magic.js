@@ -71,6 +71,40 @@ class Magic {
         return found;
     }
 
+
+
+    
+    newMulDirections() {
+        this.muldirections = [
+            [this.x - 1, this.y - 1],
+            [this.x, this.y - 1],
+            [this.x + 1, this.y - 1],
+            [this.x - 1, this.y],
+            [this.x + 1, this.y],
+            [this.x - 1, this.y + 1],
+            [this.x, this.y + 1],
+            [this.x + 1, this.y + 1]
+        ];
+    }
+
+
+    getMulDirections(t) {
+        this.newMulDirections();
+        var found = [];
+
+        for (var i in this.muldirections) {
+            var x = this.muldirections[i][0];
+            var y = this.muldirections[i][1];
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
+                if (matrix[y][x] == t) {
+                    found.push(this.muldirections[i]);
+
+                }
+            }
+        }
+        return found;
+    }
+
     move() {
         var azatCord = 0;
         var xotCord = 1;
@@ -94,11 +128,27 @@ class Magic {
 
         }
     }
-/*
-    hrdehel() {
+
+    cratefire() {
         this.energy++;
-        if (this.energy = 5) {
-            
+        if (this.energy >= 10 && fcount >= 0 && fcount <= 30) {
+
+
+            var emptyCord = this.getMulDirections(0 || 1 || 2 || 3 || 4);
+
+            var cord = random(emptyCord);
+            if (cord) {
+                var x = cord[0];
+                var y = cord[1];
+
+                var norFire = new Fire(x, y, 5);
+                fireArr.push(norFire);
+
+                matrix[y][x] = 6;
+                this.multiply = 0;
+            }
+            this.energy = 0;
+
         }
         else {
             this.move();
@@ -106,5 +156,5 @@ class Magic {
 
 
     }
-    */
+
 }

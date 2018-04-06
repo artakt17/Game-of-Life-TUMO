@@ -6,14 +6,15 @@ class Grass extends Supers {
 
     mul() {
         var mulcount = 3;
-        if (frameCount <= 20) {
+
+        if (fcount >= 0 && fcount <= 30) {
             mulcount = 3;
         }
-        else if (frameCount >= 21 && frameCount <= 40) {
-            mulcount = 10;
+        else if (fcount >= 30 && fcount <= 60) {
+            mulcount = 6;
         }
-        else {
-            frameCount === 0;
+        else if(fcount >= 61 ){
+            fcount = 0;
         }
         this.multiply++;
         if (this.multiply == mulcount) {

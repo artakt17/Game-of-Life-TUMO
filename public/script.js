@@ -14,9 +14,9 @@ var bardz = 80;
 var layn = 80;
 var grassCount = 400;
 var eatgrassCount = 100;
-var gishCount = 80;
+var gishCount = 100;
 var vorsCount = 40;
-var magCount = 5;
+var magCount = 1;
 var matrix = [];
 
 var stats = {
@@ -28,6 +28,8 @@ var stats = {
     eatgrassEatCount: 0,
     gishEatCount: 0,
     vorsKillCount: 0,
+    fireMulCount: 0,
+    framecount: 0,
 }
 
 
@@ -109,6 +111,7 @@ function setup() {
 }
  var fcount = 0;
 function draw() {
+    stats.framecount++;
     fcount++;
     console.log(fcount);
     background('#acacac');
@@ -123,7 +126,7 @@ function draw() {
         color = "white";
     }
     else if(fcount >= 61 ){
-        fcount === 0;
+        fcount = 0;
     }
 
 
@@ -178,20 +181,30 @@ function draw() {
         vorsArr[i].kill();
 
     }
-    /*
     for (var i in magArr) {
-        magArr[i].hrdehel();
+        magArr[i].cratefire();
 
     }
-    */
+    if (fcount >= 0 && fcount <= 30){
+        for (var i in fireArr) {
+            fireArr[i].mul();
+        }
+    }
+    if (fcount >= 30 && fcount <= 60){
+        for (var i in fireArr) {
+            fireArr[i].die();
+        }
+    }
 
 
-    if (frameCount % 500 === 0) {
+    if (frameCount % 100 === 0) {
         stats.timestamp = (new Date()).toString();
         stats.framecount = frameCount;
         socket.emit("send data", stats);
     }
 }
+
+
 
 
 

@@ -1,6 +1,6 @@
 class gishatich extends Supers {
         constructor(x, y, ind,) {
-            super(x, y, ind, 20);
+            super(x, y, ind, 60);
         
     
         }
@@ -53,11 +53,12 @@ class gishatich extends Supers {
                 if (x == eatArr[i].x && y == eatArr[i].y) {
                     eatArr.splice(i, 1);
                     break;
+                    this.energy=10;
                 }
             }
-            if (this.multiply == 10) {
+            if (this.multiply >= 2) {
                 this.mul()
-                this.multiply = 0;
+                this.multiply = 0;          
             }
 
         } else {
@@ -76,17 +77,17 @@ class gishatich extends Supers {
         var cord = random(emptyCord);
         if (cord) {
             var x = cord[0];
-            var y = cord[2];
+            var y = cord[1];
 
             this.multiply++;
 
             var norgishatich = new gishatich(x, y, this.index);
-            eatArr.push(norgishatich);
+            gishArr.push(norgishatich);
 
             matrix[y][x] = 2;
             this.multiply = 0;
         }
-        stats.gishgrassMulCount++;
+        stats.gishMulCount++;
     }
     die() {
         matrix[this.y][this.x] = 0;
